@@ -51,3 +51,6 @@ langgraph-checkpoint-postgres
 psycopg[binary,pool]
 #google gemini
 google-genai
+#langsmith
+langsmith
+markdown

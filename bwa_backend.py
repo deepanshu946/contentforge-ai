@@ -15,7 +15,7 @@ from langchain_core.messages import SystemMessage, HumanMessage
 from dotenv import load_dotenv
 
 load_dotenv()
-
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
 # ============================================================
 # Blog Writer (Router → (Research?) → Orchestrator → Workers → ReducerWithImages)
 # Patches image capability using your 3-node reducer flow:
