@@ -1,0 +1,53 @@
+# LangChain Core
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+
+# OpenAI Integration
+langchain-openai
+openai
+
+# Anthropic Integration
+# langchain-anthropic
+
+# Google Gemini (PaLM) Integration
+langchain-google-genai
+google-generativeai 
+
+# Hugging Face Integration
+langchain-huggingface
+transformers
+huggingface-hub
+
+# Environment Variable Management
+python-dotenv
+
+# Machine Learning Utilities
+numpy
+scikit-learn
+torch 
+torchvision
+#streamlit for UI
+streamlit
+#watchdog for auto-reloading
+watchdog
+#pydantic for data validation
+pydantic
+#pypdf for PDF processing
+pypdf
+#text splitters
+langchain-text-splitters
+#langgraph for graph-based workflows
+langgraph
+#langgraph sqlite for in-memory graph storage
+langgraph-checkpoint-sqlite
+#duckduckgo search tool
+ddgs
+#mcp adapters
+# langchain_mcp_adapters
+# postgre checkpointer for langgraph
+langgraph-checkpoint-postgres
+psycopg[binary,pool]
+#google gemini
+google-genai
