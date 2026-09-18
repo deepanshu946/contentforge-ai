@@ -1,669 +1,209 @@
-# ContentForge AI
+<div align="center">
 
-> Agentic AI-powered content creation platform that researches, plans, writes, optimizes, repurposes, and publishes content automatically.
+# ⚡ ContentForge AI
 
-ContentForge AI is a multi-agent content generation system built using **LangGraph**, **LangChain**, **OpenAI**, **Tavily**, **Streamlit**, and **Dev.to APIs**.
+**A multi-agent AI system that turns one topic into a researched, SEO-optimized blog post with images, social posts, and a published Dev.to article.**
 
-The platform goes far beyond simple blog generation. It performs research, competitor analysis, content-gap discovery, SEO optimization, image generation, social media repurposing, and one-click publishing.
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Open_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://contentforge-ai.streamlit.app/)
+[![Demo Video](https://img.shields.io/badge/Demo_Video-Watch-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/HGx3S3wPGvY)
+[![Hire Me](https://img.shields.io/badge/Hire_Me-Email-0A66C2?style=for-the-badge&logo=gmail&logoColor=white)](mailto:deepanshuagarwal946@gmail.com)
 
-WORKING LINK - https://contentforge-ai.streamlit.app/
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?logo=langchain&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?logo=langchain&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI_GPT--4o--mini-412991?logo=openai&logoColor=white)
+![Gemini](https://img.shields.io/badge/Google_Gemini-8E75B2?logo=googlegemini&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![LangSmith](https://img.shields.io/badge/LangSmith-tracing-1C3C3C)
 
-
----
-
-# Live Features
-
-✅ AI Blog Generation
-
-✅ Autonomous Research Pipeline
-
-✅ Competitor Analysis Agent
-
-✅ Content Gap Discovery Agent
-
-✅ SEO Strategy Agent
-
-✅ SEO Audit Agent
-
-✅ Technical Diagram Generation
-
-✅ LinkedIn Content Generation
-
-✅ Twitter/X Thread Generation
-
-✅ Newsletter Generation
-
-✅ Instagram Carousel Content Generation
-
-✅ AI Image Generation for Social Media
-
-✅ One-Click Publishing to Dev.to
-
-✅ Interactive Agent Execution Logs
-
-✅ Downloadable Markdown Content
+</div>
 
 ---
 
-# Tech Stack
+## 🎬 Watch the demo
 
-## AI & Agent Framework
+[![ContentForge AI demo video](https://img.youtube.com/vi/HGx3S3wPGvY/maxresdefault.jpg)](https://youtu.be/HGx3S3wPGvY)
 
-- LangGraph
-- LangChain
-- OpenAI GPT-4o Mini
-- Tavily Search API
-
-## Frontend
-
-- Streamlit
-
-## Image Generation
-
-- Google Gemini 2.5 Flash Image
-
-## Publishing
-
-- Dev.to API
-
-## Monitoring
-
-- LangSmith 
-
-## Infrastructure
-
-- Python
-- Pydantic
-- Markdown
+*2½ minutes: I type one topic, and the system researches it, studies competing articles, plans and writes the blog post, creates images, scores its SEO, writes LinkedIn and Twitter/X posts, and publishes the article live on Dev.to.*
 
 ---
 
-# System Architecture
+## 💡 What it does, in plain English
 
-The project follows a multi-agent architecture where every agent is responsible for a specialized task.
+A good blog post usually takes a whole content team: a researcher, an SEO specialist, a writer, a designer, and a social media manager. **ContentForge AI does each of those jobs with a separate AI agent**, and the agents pass their work to each other the way a real team would:
 
-```text
-User Topic
-    │
-    ▼
-Router Agent
-    │
-    ├── Research Required?
-    │
-    ▼
-Research Agent
-    │
-    ▼
-Competitor Analysis Agent
-    │
-    ▼
-Content Gap Agent
-    │
-    ▼
-SEO Strategy Agent
-    │
-    ▼
-Orchestrator Agent
-    │
-    ▼
-Worker Agents (Parallel)
-    │
-    ▼
-Reducer
-    │
-    ▼
-Image Planner
-    │
-    ▼
-Image Generator
-    │
-    ▼
-SEO Audit Agent
-    │
-    ▼
-Final Blog
+| Step | Agent | What it produces |
+|---|---|---|
+| 1 | **Router** | Decides if the topic needs fresh web research (news, prices, "latest") or can be written from general knowledge |
+| 2 | **Researcher** | Searches the web (Tavily), filters out weak sources, and keeps dated, cited evidence |
+| 3 | **Competitor Analyst** | Studies what already-ranking articles cover, and what they do well and badly |
+| 4 | **Content-Gap Finder** | Lists what readers expect, what competitors *missed*, and fresh angles to take |
+| 5 | **SEO Strategist** | Picks primary and secondary keywords, search intent, audience, and headings |
+| 6 | **Orchestrator** | Writes the outline: sections, goals, word targets, and which sections need citations |
+| 7 | **Writers (in parallel)** | One writer agent per section, all running at once for speed |
+| 8 | **Image Planner + Generator** | Decides where diagrams help, then generates them with Google Gemini |
+| 9 | **SEO Auditor** | Scores the final article, writes the meta description and slug, and adds an FAQ |
+| 10 | **Repurposer** | Turns the blog into a LinkedIn post, a Twitter/X thread, a newsletter, or an Instagram carousel |
+| 11 | **Publisher** | Picks valid tags and publishes the article to Dev.to in one click |
+
+**Result from the demo:** the topic *"TMT bars in construction"* became a **2,434-word article with 10 research sources, 3 generated images, and an SEO score of 85/100**, published live on Dev.to.
+
+---
+
+## 📸 Screenshots
+
+| | |
+|---|---|
+| **Strategy dashboard**<br>![Dashboard](docs/screenshots/01-dashboard.jpg) | **Web research with sources**<br>![Research](docs/screenshots/02-research.jpg) |
+| **Competitor intelligence**<br>![Competitors](docs/screenshots/03-competitors.jpg) | **Content gaps and unique angles**<br>![Opportunities](docs/screenshots/04-opportunities.jpg) |
+| **SEO audit and score**<br>![SEO](docs/screenshots/05-seo.jpg) | **Generated article**<br>![Content](docs/screenshots/06-content.jpg) |
+| **AI image planning**<br>![Visual assets](docs/screenshots/07-visual-assets.jpg) | **LinkedIn repurposing**<br>![LinkedIn](docs/screenshots/08-repurpose-linkedin.jpg) |
+| **Twitter/X thread**<br>![Twitter](docs/screenshots/09-repurpose-twitter.jpg) | **Published live on Dev.to**<br>![Dev.to](docs/screenshots/10-published-devto.jpg) |
+
+**Live pipeline monitor**: every agent's output streams into the UI as it runs.
+
+![Pipeline logs](docs/screenshots/11-pipeline-logs.jpg)
+
+---
+
+## 🏗️ How it works
+
+The whole pipeline is a **LangGraph state machine**. Each agent is a node that reads from and writes to a shared, typed state. Every LLM call returns a **Pydantic-validated structured output** instead of free text, so each agent gets reliable input from the one before it.
+
+```mermaid
+flowchart TD
+    A([Topic]) --> R{Router<br/>needs research?}
+    R -- yes --> RS[Research Agent<br/>Tavily web search]
+    R -- no --> CA
+    RS --> CA[Competitor Analysis]
+    CA --> CG[Content-Gap Agent]
+    CG --> SEO[SEO Strategy Agent]
+    SEO --> O[Orchestrator<br/>builds section plan]
+    O -- "fan-out (Send API)" --> W1[Writer 1]
+    O --> W2[Writer 2]
+    O --> Wn[Writer N]
+    W1 & W2 & Wn --> RD
+
+    subgraph RD [Reducer subgraph]
+        M[Merge sections] --> IP[Plan images] --> IG[Generate images<br/>Gemini]
+    end
+
+    RD --> AU[SEO Audit<br/>score · meta · FAQ]
+    AU --> F[Formatter<br/>YAML frontmatter]
+    F --> OUT([Final article])
+    OUT -.-> SOC[Repurpose:<br/>LinkedIn · X · Newsletter · Instagram]
+    OUT -.-> DEV[Publish to Dev.to]
 ```
 
----
+### Engineering highlights
 
-# Agent Pipeline
-
----
-
-## 1. Router Agent
-
-Determines:
-
-- Whether web research is required
-- Content generation mode
-- Research queries
-
-### Modes
-
-#### Closed Book
-
-Used for evergreen topics.
-
-Example:
-
-```text
-What is Retrieval Augmented Generation?
-```
-
-No external research required.
+- **Adaptive research depth.** The router picks one of three modes. *Closed-book* is for evergreen topics and skips search. *Hybrid* is for evergreen topics that need current examples and uses a 45-day recency window. *Open-book* is for news and "latest" topics and uses a 7-day window. That keeps API cost and latency down when fresh research isn't needed.
+- **Parallel section writing.** The orchestrator fans out one worker per section with LangGraph's `Send` API, and the results are merged by a reducer. Total time is closer to the slowest section than to the sum of all sections.
+- **Structured outputs everywhere.** Plans, evidence, competitor analysis, SEO strategy, and audits are Pydantic models (`Plan`, `EvidenceItem`, `SEOStrategy`, `SEOAudit`, …). Malformed LLM output fails validation right away instead of silently breaking the next step.
+- **Image generation that can't crash the run.** If Gemini refuses a prompt, hits a quota, or times out, the article is still delivered without that image.
+- **Grounded writing.** Writers get the research evidence and add `(Source)` links. The final article is scored by a separate auditor agent, not the one that wrote it.
+- **Valid frontmatter.** Output starts with YAML frontmatter built with `yaml.safe_dump`, so titles like *"Agentic AI: A Guide"* don't break Dev.to or static-site generators.
+- **One graph execution per run.** The UI streams `updates` (for live progress) and `values` (for final state) from a single `stream()` call, so the pipeline runs once instead of twice.
+- **Observability.** Full LangSmith tracing of every agent call, for debugging prompts, latency, and token cost.
 
 ---
 
-#### Hybrid
+## 🧰 Tech stack
 
-Used when current examples are useful.
-
-Example:
-
-```text
-LangGraph Tutorial
-```
-
-Research + LLM knowledge.
-
----
-
-#### Open Book
-
-Used for highly dynamic topics.
-
-Example:
-
-```text
-Latest AI developments this week
-```
-
-Requires fresh web research.
+| Layer | Tools |
+|---|---|
+| Agent orchestration | **LangGraph** (state graph, conditional routing, `Send` fan-out, subgraphs) |
+| LLM framework | **LangChain**, OpenAI **GPT-4o-mini**, Pydantic structured outputs |
+| Web research | **Tavily Search API** |
+| Image generation | **Google Gemini** (`google-genai`) |
+| Publishing | **Dev.to (Forem) REST API** |
+| Observability | **LangSmith** |
+| Frontend and hosting | **Streamlit**, deployed on **Streamlit Community Cloud** |
+| Dev environment | Dev Container (one-click GitHub Codespaces) |
 
 ---
 
-# 2. Research Agent
+## 🚀 Run it yourself
 
-Uses Tavily Search API.
+**Easiest:** open the [live app](https://contentforge-ai.streamlit.app/), or click **Code → Codespaces → Create codespace** on this repo. The dev container installs everything and starts the app.
 
-Responsibilities:
-
-- Collect authoritative sources
-- Filter irrelevant pages
-- Deduplicate results
-- Extract evidence
-
-Output:
-
-```python
-EvidenceItem
-```
-
-Contains:
-
-- title
-- url
-- snippet
-- publish date
-
----
-
-# 3. Competitor Analysis Agent
-
-Analyzes top ranking content.
-
-Identifies:
-
-- Common topics
-- Common headings
-- Frequently covered concepts
-- Competitor strengths
-- Competitor weaknesses
-
-Example:
-
-```text
-Topic:
-Agentic AI
-```
-
-Finds:
-
-```text
-Most competitors discuss:
-- Autonomous workflows
-- Tool calling
-- Memory
-
-Few discuss:
-- Production deployment
-- Cost optimization
-```
-
----
-
-# 4. Content Gap Agent
-
-Uses competitor insights.
-
-Discovers:
-
-### Must Cover Topics
-
-Topics expected by readers.
-
-### Gap Opportunities
-
-Valuable information competitors ignore.
-
-### Unique Angles
-
-Ways to differentiate content.
-
-### Recommended Sections
-
-Additional sections that improve ranking potential.
-
----
-
-# 5. SEO Strategy Agent
-
-Creates a content ranking strategy.
-
-Generates:
-
-- Primary keyword
-- Secondary keywords
-- Search intent
-- Recommended headings
-- Audience targeting
-
-Example:
-
-```text
-Primary Keyword:
-Agentic AI
-
-Secondary Keywords:
-- langgraph
-- ai agents
-- autonomous workflows
-```
-
----
-
-# 6. Orchestrator Agent
-
-Creates the master content plan.
-
-Produces:
-
-```python
-Plan
-```
-
-Contains:
-
-- Blog structure
-- Section goals
-- Writing instructions
-- Word targets
-
----
-
-# 7. Worker Agents
-
-Executed in parallel.
-
-Each worker writes one section.
-
-Responsibilities:
-
-- Follow SEO strategy
-- Use research evidence
-- Cover content gaps
-- Add citations when required
-
-This significantly reduces generation time.
-
----
-
-# 8. Reducer
-
-Combines worker outputs.
-
-Creates:
-
-```markdown
-# Blog Title
-
-Section 1
-
-Section 2
-
-Section 3
-```
-
----
-
-# 9. Image Planning Agent
-
-Analyzes final content.
-
-Determines:
-
-- Whether images are needed
-- Where images should be placed
-- Image prompts
-
-Generates placeholders:
-
-```text
-[[IMAGE_1]]
-[[IMAGE_2]]
-```
-
----
-
-# 10. Image Generation Agent
-
-Uses Gemini Image Model.
-
-Creates:
-
-- Technical diagrams
-- Workflow illustrations
-- Architecture visuals
-
-Automatically injects generated images into content.
-
-### Fallback Handling
-
-If image generation fails:
-
-- Blog generation continues
-- No crash occurs
-- Content remains usable
-
----
-
-# 11. SEO Audit Agent
-
-Analyzes completed article.
-
-Generates:
-
-### SEO Title
-
-```text
-Best Agentic AI Guide for Developers
-```
-
-### Meta Description
-
-### URL Slug
-
-### Reading Time
-
-### SEO Score
-
-### Strengths
-
-### Improvements
-
-### FAQ Section
-
----
-
-# Multi-Platform Content Generation
-
-After blog creation, users can repurpose content into multiple formats.
-
----
-
-## LinkedIn Agent
-
-Generates:
-
-- Professional LinkedIn post
-- Industry-focused messaging
-- Engagement hooks
-- CTA
-
-Also generates:
-
-- LinkedIn visual image
-
----
-
-## Twitter/X Agent
-
-Generates:
-
-- Complete thread
-- Tweet numbering
-- Short-form content
-- Viral formatting
-
----
-
-## Newsletter Agent
-
-Generates:
-
-- Subject line
-- Newsletter body
-- Reader-focused summaries
-
----
-
-## Instagram Agent
-
-Generates:
-
-- Carousel slide content
-- Captions
-- Hashtags
-
-Also generates:
-
-- Instagram visual
-
----
-
-# Dev.to Publishing Agent
-
-After content generation:
-
-User can choose:
-
-```text
-Publish to Dev.to
-```
-
-The application requests:
-
-- Dev.to API Key
-
-Then automatically:
-
-1. Extracts SEO keywords
-2. Generates valid Dev.to tags
-3. Creates article payload
-4. Publishes article
-
-### Automated Tag Optimization
-
-Tags are generated from:
-
-```text
-Primary Keyword
-Secondary Keywords
-```
-
-And transformed into:
-
-```text
-lowercase
-no spaces
-max 3 tags
-```
-
-Example:
-
-```text
-Agentic AI
-LangGraph
-AI Agents
-```
-
-Becomes:
-
-```text
-agenticai
-langgraph
-aiagents
-```
-
----
-
-# Streamlit Interface
-
-The application includes:
-
-### Dashboard
-
-- Content generation controls
-- Agent status monitoring
-- Blog preview
-
-### Agent Execution Logs
-
-Displays:
-
-- Active node
-- Execution progress
-- State updates
-
-### SEO Analytics Panel
-
-Shows:
-
-- SEO score
-- Keywords
-- Meta description
-
-### Publishing Panel
-
-Allows:
-
-- Dev.to publishing
-- Content repurposing
-
----
-
-# Project Structure
-
-```text
-contentforge-ai/
-
-│
-├── bwa_backend.py
-│   ├── LangGraph Workflow
-│   ├── Agent Logic
-│   ├── SEO Pipeline
-│   ├── Research Pipeline
-│
-├── bwa_frontend.py
-│   ├── Streamlit UI
-│   ├── Content Generation
-│   ├── Publishing Controls
-│
-├── publish_agent.py
-│   ├── Dev.to Publishing
-│   ├── SEO Tag Extraction
-│
-├── requirements.txt
-│
-└── README.md
-```
-
----
-
-# Installation
-
-Clone repository:
+**Locally:**
 
 ```bash
-git clone https://github.com/<username>/contentforge-ai.git
-
+git clone https://github.com/deepanshu946/contentforge-ai.git
 cd contentforge-ai
-```
 
-Install dependencies:
-
-```bash
+python -m venv venv
+source venv/bin/activate          # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-```
 
-Run application:
-
-```bash
+cp .env.example .env              # then add your API keys
 streamlit run bwa_frontend.py
 ```
 
+### API keys
+
+| Variable | Needed for | Get it at |
+|---|---|---|
+| `OPENAI_API_KEY` | All agents (required) | platform.openai.com |
+| `TAVILY_API_KEY` | Web research | tavily.com |
+| `GOOGLE_API_KEY` | Image generation | aistudio.google.com |
+| `LANGCHAIN_API_KEY` | LangSmith tracing (optional) | smith.langchain.com |
+
+The Dev.to API key is entered in the app's **Publish** tab when you publish. It is never saved.
+
+### Tests
+
+```bash
+python test_fixes.py
+```
+
+This checks that the generated frontmatter is valid YAML (including titles with colons) and that a run executes the agent graph exactly once.
+
 ---
 
-# Environment Variables
-
-Create:
+## 📁 Project structure
 
 ```text
-.env
+contentforge-ai/
+├── bwa_backend.py        # LangGraph pipeline: every agent, Pydantic schemas, graph wiring
+├── bwa_frontend.py       # Streamlit UI: 10 tabs, live pipeline streaming, downloads
+├── publish_agent.py      # Dev.to publishing client
+├── test_fixes.py         # Self-check for frontmatter and single-execution guarantees
+├── blogs/                # Sample articles generated by the system
+├── docs/screenshots/     # README images
+├── .devcontainer/        # GitHub Codespaces setup
+├── .env.example          # API key template
+└── requirements.txt
 ```
 
-```env
-OPENAI_API_KEY=your_key
-
-TAVILY_API_KEY=your_key
-
-GOOGLE_API_KEY=your_key
-
-LANGCHAIN_API_KEY=your_key
-LANGCHAIN_TRACING_V2=true
-LANGCHAIN_PROJECT=ContentForgeAI
-```
+Browse [`blogs/`](blogs/) for 17 real articles the system generated, on topics like agentic AI, CRISPR, quantum computing, and LangGraph.
 
 ---
 
-# Future Enhancements
+## 🗺️ Roadmap
 
-- WordPress Publishing Agent
-- Medium Publishing Agent
-- Ghost CMS Integration
-- Automated Content Scheduling
-- Analytics Feedback Loop
-- Content Performance Optimization Agent
-- Multi-language Content Generation
-- AI Content Calendar Agent
-- Brand Voice Memory System
-- RAG-based Knowledge Base Integration
+- [ ] Publish to WordPress, Medium, and Ghost
+- [ ] Brand-voice memory, so articles match a company's writing style
+- [ ] RAG over a company's own documents as a research source
+- [ ] Content calendar and scheduled publishing
+- [ ] Performance feedback loop that uses real traffic data to improve future posts
 
 ---
 
-# Why This Project Matters
+## 👋 About me
 
-ContentForge AI demonstrates production-level Agentic AI concepts:
+I'm **Deepanshu Agarwal**, an AI engineer who builds **agentic AI systems, LLM applications, and automation pipelines** with LangGraph, LangChain, OpenAI, and Gemini.
 
-- Multi-Agent Architectures
-- Agent Collaboration
-- Structured Outputs
-- Autonomous Research
-- SEO Optimization
-- Content Gap Discovery
-- Publishing Automation
-- Human-in-the-Loop Workflows
-- LangGraph State Management
-- Real-world Business Automation
+I built ContentForge AI end to end: the multi-agent architecture, the prompts and structured schemas, the Streamlit interface, the integrations (Tavily, Gemini, Dev.to, LangSmith), and the cloud deployment.
 
-This project showcases how multiple AI agents can work together to execute an end-to-end content creation workflow that traditionally requires an entire content marketing team.
+**I'm available for freelance work**, including:
+
+- 🤖 AI agents and multi-agent workflows (LangGraph / LangChain)
+- 💬 Chatbots and RAG systems over your own documents
+- ⚙️ Content, marketing, and business-process automation with LLMs
+- 🚀 Turning AI prototypes into deployed web apps
+
+📧 **[deepanshuagarwal946@gmail.com](mailto:deepanshuagarwal946@gmail.com)** · 💻 **[github.com/deepanshu946](https://github.com/deepanshu946)**
+
+If this project is useful or interesting, a ⭐ on the repo helps a lot.

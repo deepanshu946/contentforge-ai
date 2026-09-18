@@ -36,3 +36,11 @@ images/
 # Build
 dist/
 build/
+
+# Local-only / private files
+venv */
+*.pdf
+contentforge-handbook.html
+test.py
+blog_writing_agent_v1.py
+social_images/
