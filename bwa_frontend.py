@@ -54,29 +54,27 @@ def images_zip(images_dir: Path) -> Optional[bytes]:
 
 def try_stream(graph_app, inputs: Dict[str, Any]) -> Iterator[Tuple[str, Any]]:
     """
-    Stream graph progress if available; else invoke.
-    Yields ("updates"/"values"/"final", payload).
+    Run the graph ONCE, yielding per-node progress and then the final state.
+
+    "updates" gives us the node name for the progress panel; "values" gives the
+    full state after each superstep, so the last one is the final state. Asking
+    for both in a single stream() is what keeps this to one execution -- calling
+    invoke() after the loop re-runs the whole graph and doubles cost/latency.
+
+    Yields ("updates", {node: update}) then exactly one ("final", state).
     """
-    try:
-        for step in graph_app.stream(inputs, stream_mode="updates"):
-            yield ("updates", step)
-        out = graph_app.invoke(inputs)
-        yield ("final", out)
-        return
-    except Exception:
-        pass
+    final_state: Optional[Dict[str, Any]] = None
 
-    try:
-        for step in graph_app.stream(inputs, stream_mode="values"):
-            yield ("values", step)
-        out = graph_app.invoke(inputs)
-        yield ("final", out)
-        return
-    except Exception:
-        pass
+    for mode, payload in graph_app.stream(inputs, stream_mode=["updates", "values"]):
+        if mode == "values":
+            final_state = payload
+        else:
+            yield ("updates", payload)
 
-    out = graph_app.invoke(inputs)
-    yield ("final", out)
+    if final_state is None:
+        raise RuntimeError("Graph produced no state; nothing was executed.")
+
+    yield ("final", final_state)
 
 
 def extract_latest_state(current_state: Dict[str, Any], step_payload: Any) -> Dict[str, Any]:

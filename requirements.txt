@@ -54,3 +54,5 @@ google-genai
 #langsmith
 langsmith
 markdown
+#yaml for article frontmatter
+pyyaml

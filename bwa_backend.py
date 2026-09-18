@@ -5,6 +5,7 @@ import re
 from datetime import date, timedelta
 from pathlib import Path
 from typing import TypedDict, List, Optional, Literal, Annotated
+import yaml
 from pydantic import BaseModel, Field
 from enum import Enum
 from langgraph.graph import StateGraph, START, END
@@ -988,18 +989,27 @@ def final_formatter_node(state: State):
 
     audit = state["seo_audit"]
 
-    frontmatter = f"""---
-    title: {audit.seo_title}
-    description: {audit.meta_description}
-    slug: {audit.slug}
-    seo_score: {audit.seo_score}
-    reading_time: {audit.estimated_reading_time}
-    ---
-    """
+    # safe_dump handles the quoting/escaping an f-string cannot: an seo_title
+    # containing a colon ("Topic: Subtitle") is extremely likely and would
+    # otherwise produce invalid YAML. Column-zero keys, since indented
+    # frontmatter is not parsed by Dev.to or any static site generator.
+    meta = yaml.safe_dump(
+        {
+            "title": audit.seo_title,
+            "description": audit.meta_description,
+            "slug": audit.slug,
+            "seo_score": audit.seo_score,
+            "reading_time": audit.estimated_reading_time,
+        },
+        sort_keys=False,
+        allow_unicode=True,
+        default_flow_style=False,
+    )
 
     blog = (
-        frontmatter
-        + "\n"
+        "---\n"
+        + meta
+        + "---\n\n"
         + state["final"]
         + "\n\n"
         + audit.faq_section
